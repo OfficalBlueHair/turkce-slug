@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="turkce-slug canlı demo: Türkçe slug, case dönüşümleri ve 4.205 kelimelik doğrulama testi."
+    />
+    <title>turkce-slug · canlı demo</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23d7202b'/><text x='32' y='43' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'>TR</text></svg>"
+    />
+    <link rel="stylesheet" href="/demo/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">TR</div>
+          <div>
+            <p class="eyebrow">Türkçe slug &amp; case utilities</p>
+            <h1>turkce-slug</h1>
+            <p class="lede">
+              Türkçe metni bozmadan ASCII slug'a çevir. <strong>I</strong>,
+              <strong>ı</strong>, <strong>İ</strong> ve <strong>i</strong> artık doğru.
+            </p>
+          </div>
+        </div>
+        <a
+          class="gh-link"
+          href="https://github.com/OfficalBlueHair/turkce-slug"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+      </header>
+
+      <main>
+        <noscript>
+          <div class="fatal">Bu demo JavaScript gerektirir.</div>
+        </noscript>
+
+        <section class="card" aria-labelledby="playground-title">
+          <div class="card-heading">
+            <div>
+              <p class="kicker">Canlı deneme</p>
+              <h2 id="playground-title">Metni yaz, sonucu gör</h2>
+            </div>
+            <button id="random-word" class="btn btn-ghost btn-small" type="button" disabled>
+              Rastgele kelime
+            </button>
+          </div>
+
+          <label class="field-label" for="input">Türkçe metin</label>
+          <textarea id="input" rows="3" spellcheck="false">İstanbul'da Iğdır</textarea>
+
+          <div class="chips" aria-label="Hazır örnekler">
+            <button class="chip" type="button" data-example="İSTANBUL">İSTANBUL</button>
+            <button class="chip" type="button" data-example="IĞDIR">IĞDIR</button>
+            <button class="chip" type="button" data-example="İstanbul'da Iğdır">
+              İstanbul'da Iğdır
+            </button>
+            <button class="chip" type="button" data-example="Çok Güzel Bir Başlık!">
+              Çok Güzel Bir Başlık!
+            </button>
+            <button class="chip" type="button" data-example="ŞÜKRÜ ÇAĞLAR">
+              ŞÜKRÜ ÇAĞLAR
+            </button>
+            <button class="chip" type="button" data-example="Fiyat: 100 TL / Ay">
+              Fiyat: 100 TL / Ay
+            </button>
+            <button class="chip" type="button" data-example="😍😍😍">😍😍😍</button>
+          </div>
+
+          <div class="options">
+            <label class="option" for="separator">
+              <span>Separator</span>
+              <input id="separator" type="text" value="-" autocomplete="off" spellcheck="false" />
+            </label>
+            <label class="option" for="max-length">
+              <span>Max uzunluk</span>
+              <input id="max-length" type="number" min="0" step="1" placeholder="sınırsız" />
+            </label>
+            <label class="option option-check">
+              <input id="lowercase" type="checkbox" checked />
+              <span>lowercase</span>
+            </label>
+            <label class="option option-check">
+              <input id="trim" type="checkbox" checked />
+              <span>trim</span>
+            </label>
+            <label class="option option-check">
+              <input id="preserve-numbers" type="checkbox" checked />
+              <span>sayıları koru</span>
+            </label>
+          </div>
+
+          <div class="slug-panel">
+            <div class="slug-panel-head">
+              <span>slugify()</span>
+              <button id="copy" class="btn btn-ghost btn-small" type="button" disabled>
+                Kopyala
+              </button>
+            </div>
+            <output id="slug-output" class="slug-output" aria-live="polite">—</output>
+            <p id="slug-error" class="error" role="alert" hidden></p>
+          </div>
+        </section>
+
+        <div class="grid">
+          <section class="card" aria-labelledby="case-title">
+            <p class="kicker">Türkçe case</p>
+            <h2 id="case-title">Dönüşümler</h2>
+            <dl class="case-list">
+              <div>
+                <dt>toLowercaseTr</dt>
+                <dd id="case-lower">—</dd>
+              </div>
+              <div>
+                <dt>toUppercaseTr</dt>
+                <dd id="case-upper">—</dd>
+              </div>
+              <div>
+                <dt>capitalizeTr</dt>
+                <dd id="case-capitalize">—</dd>
+              </div>
+              <div>
+                <dt>titleCaseTr</dt>
+                <dd id="case-title-output">—</dd>
+              </div>
+              <div>
+                <dt>removePunctuation</dt>
+                <dd id="case-punctuation">—</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="card" aria-labelledby="map-title">
+            <p class="kicker">Karakter haritası</p>
+            <h2 id="map-title">Türkçe → ASCII</h2>
+            <div class="map-grid">
+              <span class="map-item"><code>ç</code><span>c</span></span>
+              <span class="map-item"><code>Ç</code><span>c</span></span>
+              <span class="map-item"><code>ğ</code><span>g</span></span>
+              <span class="map-item"><code>Ğ</code><span>g</span></span>
+              <span class="map-item"><code>ı</code><span>i</span></span>
+              <span class="map-item"><code>I</code><span>i</span></span>
+              <span class="map-item"><code>İ</code><span>i</span></span>
+              <span class="map-item"><code>i</code><span>i</span></span>
+              <span class="map-item"><code>ö</code><span>o</span></span>
+              <span class="map-item"><code>Ö</code><span>o</span></span>
+              <span class="map-item"><code>ş</code><span>s</span></span>
+              <span class="map-item"><code>Ş</code><span>s</span></span>
+              <span class="map-item"><code>ü</code><span>u</span></span>
+              <span class="map-item"><code>Ü</code><span>u</span></span>
+              <span class="map-item"><code>â</code><span>a</span></span>
+              <span class="map-item"><code>î</code><span>i</span></span>
+              <span class="map-item"><code>û</code><span>u</span></span>
+            </div>
+            <p class="hint">
+              Varsayılan <code>lowercase: true</code>. Kapatırsan Ç → C, İ → I,
+              Ğ → G gibi kaynak büyüklüğü korunur.
+            </p>
+          </section>
+        </div>
+
+        <section id="corpus-card" class="card" aria-labelledby="corpus-title">
+          <div class="card-heading">
+            <div>
+              <p class="kicker">Otomatik doğrulama</p>
+              <h2 id="corpus-title">4.205 kelime testi</h2>
+              <p class="muted">
+                MIT lisanslı
+                <a
+                  href="https://github.com/hermitdave/FrequencyWords"
+                  target="_blank"
+                  rel="noreferrer"
+                  >FrequencyWords</a
+                >
+                verisinden alınan kelimelerle slug, idempotency ve Türkçe case kontrolü.
+              </p>
+            </div>
+            <button id="run-corpus" class="btn" type="button">Tekrar test et</button>
+          </div>
+
+          <div id="corpus-status" class="status status-pending" role="status">
+            Test hazırlanıyor…
+          </div>
+
+          <div class="progress" aria-hidden="true">
+            <span id="corpus-progress"></span>
+          </div>
+
+          <div class="stats">
+            <div>
+              <strong id="stat-total">—</strong>
+              <span>kelime</span>
+            </div>
+            <div>
+              <strong id="stat-passed">—</strong>
+              <span>geçti</span>
+            </div>
+            <div>
+              <strong id="stat-failed">—</strong>
+              <span>başarısız</span>
+            </div>
+          </div>
+
+          <div id="corpus-checks" class="checks"></div>
+          <div id="corpus-failures" class="failures" hidden></div>
+
+          <div class="sample">
+            <div class="sample-head">
+              <h3>Örnek çıktılar</h3>
+              <span class="muted">ilk 8 kelime</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Kelime</th>
+                    <th>slugify sonucu</th>
+                  </tr>
+                </thead>
+                <tbody id="sample-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="phrases-title">
+          <div class="card-heading">
+            <div>
+              <p class="kicker">Birebir örnekler</p>
+              <h2 id="phrases-title">Beklenen sonuçlar</h2>
+            </div>
+            <div id="phrase-status" class="status status-pending" role="status">
+              Kontrol ediliyor…
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Girdi</th>
+                  <th>Beklenen</th>
+                  <th>Gerçek</th>
+                  <th aria-label="Durum"></th>
+                </tr>
+              </thead>
+              <tbody id="phrase-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span><strong>turkce-slug</strong> · v0.1.0 · MIT</span>
+        <span>4.205 kelime test korpusu</span>
+        <a href="https://github.com/OfficalBlueHair/turkce-slug" target="_blank" rel="noreferrer">
+          GitHub ↗
+        </a>
+      </footer>
+    </div>
+
+    <script type="module" src="/demo/app.js"></script>
+  </body>
+</html>

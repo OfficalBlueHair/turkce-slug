@@ -88,6 +88,16 @@ slugify("Çok güzel bir başlık örneği", {
 slugify("Fiyat: 100 TL", { preserveNumbers: false }); // "fiyat-tl"
 ```
 
+### Demo
+
+```bash
+npm run demo
+# http://127.0.0.1:4173
+```
+
+Tarayıcıda canlı `slugify`, Türkçe case dönüşümleri ve 4.205 kelimelik
+otomatik doğrulama testi. Demo, paketi önce build eder.
+
 ### API
 
 | Fonksiyon | Açıklama | Dönüş |
@@ -233,6 +243,16 @@ const { slugify } = require("turkce-slug");
 
 slugify("Çok Güzel"); // "cok-guzel"
 ```
+
+### Demo
+
+```bash
+npm run demo
+# http://127.0.0.1:4173
+```
+
+An interactive browser demo with live `slugify`, Turkish casing examples, and
+a 4,205-word validation run. The demo builds the package first.
 
 ### API
 
