@@ -169,6 +169,23 @@ Türkçe korpusunu da kapsar. Korpus, MIT lisanslı FrequencyWords verisinden
 türetilmiştir; kaynak ve lisans bilgisi `tests/fixtures/README.md` içindedir.
 Slug üretimi harf tabanlıdır ve çalışma zamanında sözlük gerektirmez.
 
+#### Tam korpus doğrulama (616.760 kelime)
+
+Normal testler hızlı kalsın diye 4.205 kelimelik fixture kullanılır. Tam korpus
+otonom scriptlerle indirilir, birleştirilir ve doğrulanır:
+
+```bash
+npm run corpus           # indir + oluştur + doğrula
+npm run corpus:build     # sadece indir/oluştur
+npm run corpus:validate  # mevcut korpusu doğrula
+```
+
+İki MIT kaynağı (FrequencyWords + Wikipedia tabanlı Turkish Wordlist) kullanılır.
+616.760 benzersiz kelime `slugify`, idempotency ve Türkçe case kontrollerinden
+geçirilir. Sonuç `reports/corpus-report.json`; tam korpus `.cache/` altında
+kalır ve npm paketine/git'e girmez. Kaynak ve lisanslar:
+`scripts/corpus-sources.md`.
+
 ### Katkı
 
 1. Depoyu fork'layın ve bir dal oluşturun.
@@ -321,6 +338,23 @@ The test suite includes a 4,205-word Turkish corpus in
 FrequencyWords data; see `tests/fixtures/README.md` for source and license
 details. Transliteration is character-based and does not require a runtime
 dictionary.
+
+#### Full corpus validation (616,760 words)
+
+The regular suite keeps a fast 4,205-word fixture. The full corpus is
+downloaded, merged, and validated by standalone scripts:
+
+```bash
+npm run corpus
+npm run corpus:build
+npm run corpus:validate
+```
+
+Two MIT sources (FrequencyWords and a Wikipedia-derived Turkish wordlist) are
+used. 616,760 unique words are checked for ASCII output, idempotency, and
+Turkish casing. The result is written to `reports/corpus-report.json`; the
+full corpus stays in `.cache/` and is not committed or published. Sources and
+licenses: `scripts/corpus-sources.md`.
 
 ### Contributing
 

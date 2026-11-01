@@ -669,6 +669,17 @@ input:focus {
   margin-bottom: 8px;
 }
 
+.corpus-note {
+  margin: 18px 0 0;
+}
+
+.corpus-note code {
+  font-family: var(--mono);
+  background: var(--code);
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+
 .table-wrap {
   overflow-x: auto;
 }

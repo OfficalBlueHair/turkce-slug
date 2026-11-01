@@ -28,6 +28,9 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "demo": "npm run build && node demo/server.mjs",
+    "corpus:build": "node scripts/build-corpus.mjs",
+    "corpus:validate": "npm run build && node scripts/validate-corpus.mjs",
+    "corpus": "npm run build && node scripts/build-corpus.mjs && node scripts/validate-corpus.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
@@ -50,6 +53,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "fflate": "^0.8.3",
     "tsup": "^9.0.0",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5"

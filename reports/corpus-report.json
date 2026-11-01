@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-11-01T20:13:04.969Z",
+  "library": {
+    "name": "turkce-slug",
+    "version": "0.1.0"
+  },
+  "corpus": {
+    "path": ".cache/corpus.txt",
+    "total": 616760,
+    "target": 616760,
+    "sha256": "9a2fb9b081e9076741ce462c362fb11dbc349301e743ef4f8cfe03823f07f8b1",
+    "metaSha256": "9a2fb9b081e9076741ce462c362fb11dbc349301e743ef4f8cfe03823f07f8b1",
+    "shaMatchesMeta": true,
+    "sourceStats": {
+      "frequency": {
+        "name": "FrequencyWords",
+        "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/525f9b560de45753a5ea01069454e72e9aa541c6/content/2018/tr/tr_50k.txt",
+        "license": "MIT",
+        "copyright": "Copyright (c) 2016 Hermit Dave",
+        "valid": 49156,
+        "unique": 49156,
+        "used": 49145
+      },
+      "wordlist": {
+        "name": "Turkish Wordlist",
+        "url": "https://raw.githubusercontent.com/csariyildiz/turkish-wordlist/042c406ebc1536ecbc6eb8c17fb22c0fe3a6507f/tr_wordlist.zip",
+        "license": "MIT",
+        "copyright": "Copyright (c) 2024 Çağrı Sarıyıldız",
+        "validLines": 2466992,
+        "used": 567595
+      },
+      "curated": {
+        "declared": 20,
+        "used": 20
+      }
+    },
+    "sourceTotal": 616760,
+    "letterCoverage": {
+      "ç": 19483,
+      "ğ": 41167,
+      "ı": 189386,
+      "ö": 16906,
+      "ş": 51756,
+      "ü": 39414,
+      "â": 121,
+      "î": 6,
+      "û": 5
+    },
+    "missingLetters": []
+  },
+  "checks": {
+    "ascii": {
+      "passed": 616760,
+      "failed": 0
+    },
+    "idempotent": {
+      "passed": 616760,
+      "failed": 0
+    },
+    "casing": {
+      "passed": 616760,
+      "failed": 0
+    }
+  },
+  "passed": 616760,
+  "failed": 0,
+  "failures": [],
+  "durationMs": 2525
+}
