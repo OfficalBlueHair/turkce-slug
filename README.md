@@ -182,8 +182,9 @@ npm run corpus:validate  # mevcut korpusu doğrula
 
 İki MIT kaynağı (FrequencyWords + Wikipedia tabanlı Turkish Wordlist) kullanılır.
 616.760 benzersiz kelime `slugify`, idempotency ve Türkçe case kontrollerinden
-geçirilir. Sonuç `reports/corpus-report.json`; tam korpus `.cache/` altında
-kalır ve npm paketine/git'e girmez. Kaynak ve lisanslar:
+geçirilir. Sonuç `reports/corpus-report.json`; doğrulanan tam liste
+`data/turkish-words-616760.txt` olarak repoda tutulur. Ham indirmeler `.cache/`
+altında kalır. Veri dosyası npm paketine girmez. Kaynak ve lisanslar:
 `scripts/corpus-sources.md`.
 
 ### Katkı
@@ -353,8 +354,9 @@ npm run corpus:validate
 Two MIT sources (FrequencyWords and a Wikipedia-derived Turkish wordlist) are
 used. 616,760 unique words are checked for ASCII output, idempotency, and
 Turkish casing. The result is written to `reports/corpus-report.json`; the
-full corpus stays in `.cache/` and is not committed or published. Sources and
-licenses: `scripts/corpus-sources.md`.
+validated corpus is committed as `data/turkish-words-616760.txt`, while raw
+downloads stay in `.cache/`. The data file is not published in the npm
+package. Sources and licenses: `scripts/corpus-sources.md`.
 
 ### Contributing
 

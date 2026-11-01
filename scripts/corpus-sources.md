@@ -45,9 +45,12 @@ check.
 ## Output
 
 - `.cache/tr_50k.txt` and `.cache/tr_wordlist.zip` — cached downloads
-- `.cache/corpus.txt` — 616,760 words, one per line
+- `.cache/corpus.txt` — generated 616,760-word corpus, one per line
 - `.cache/corpus-meta.json` — source, target, letter coverage and SHA-256
+- `data/turkish-words-616760.txt` — committed snapshot of the corpus
 - `reports/corpus-report.json` — validation result
 
-The `.cache/` directory is ignored by git. The report is committed so the
-validation result can be reviewed without downloading the sources.
+The `.cache/` directory is ignored by git. The snapshot in `data/` and the
+validation report are committed so the result can be reviewed without
+downloading the sources. The snapshot SHA-256 matches the `sha256` field in
+the report.
