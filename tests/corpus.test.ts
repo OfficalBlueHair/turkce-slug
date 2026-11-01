@@ -12,7 +12,7 @@ const TURKISH_LETTERS = "çğıöşüâîû";
 
 describe("Turkish word corpus", () => {
   it("contains a large, unique word sample", () => {
-    expect(TURKISH_WORDS.length).toBeGreaterThanOrEqual(1500);
+    expect(TURKISH_WORDS.length).toBeGreaterThanOrEqual(4000);
     expect(new Set(TURKISH_WORDS).size).toBe(TURKISH_WORDS.length);
   });
 

@@ -18,13 +18,13 @@ The sample was generated once from the source file:
 1. Keep words that consist only of Turkish letters and an optional internal
    apostrophe.
 2. Keep words between 2 and 20 characters.
-3. Take the first 1,500 valid words in frequency order.
-4. Add up to 500 words containing Turkish-specific letters.
+3. Take the first 4,000 valid words in frequency order.
+4. Add up to 2,000 words containing Turkish-specific letters.
 5. Add a small curated set of edge cases (`İ`, `I`, `ı`, `â`, `î`, `û`,
    apostrophes, mixed case).
 6. Deduplicate while keeping frequency order.
 
-The result contains 1,519 unique words and covers every Turkish-specific
+The result contains 4,205 unique words and covers every Turkish-specific
 letter.
 
 This directory is test data only. It is excluded from the published npm
