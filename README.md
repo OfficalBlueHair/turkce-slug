@@ -154,6 +154,11 @@ npm run dev       # tsup --watch
 
 `prepublishOnly`, yayından önce typecheck, test ve build çalıştırır.
 
+Testler, `tests/fixtures/turkish-words.ts` içindeki 1.519 kelimelik bir
+Türkçe korpusunu da kapsar. Korpus, MIT lisanslı FrequencyWords verisinden
+türetilmiştir; kaynak ve lisans bilgisi `tests/fixtures/README.md` içindedir.
+Slug üretimi harf tabanlıdır ve çalışma zamanında sözlük gerektirmez.
+
 ### Katkı
 
 1. Depoyu fork'layın ve bir dal oluşturun.
@@ -290,6 +295,12 @@ npm run typecheck
 npm run build
 npm run dev
 ```
+
+The test suite includes a 1,519-word Turkish corpus in
+`tests/fixtures/turkish-words.ts`. It is derived from MIT-licensed
+FrequencyWords data; see `tests/fixtures/README.md` for source and license
+details. Transliteration is character-based and does not require a runtime
+dictionary.
 
 ### Contributing
 
