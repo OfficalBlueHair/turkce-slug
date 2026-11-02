@@ -1,0 +1,12 @@
+Türkçe slug'da I/ı/İ/i sorunu artık yok.
+
+İSTANBUL → istanbul
+IĞDIR → igdir
+ŞÜKRÜ ÇAĞLAR → sukru-caglar
+
+turkce-slug: 0 runtime bağımlılığı, ESM + CJS, TypeScript.
+616.760 kelimede 0 hata.
+
+Canlı demo: https://officalbluehair.github.io/turkce-slug/
+npm: https://www.npmjs.com/package/turkce-slug
+GitHub: https://github.com/OfficalBlueHair/turkce-slug

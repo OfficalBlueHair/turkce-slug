@@ -10,9 +10,10 @@ Zero runtime dependencies · ESM + CommonJS · TypeScript types included.
 [![license](https://img.shields.io/npm/l/turkce-slug.svg)](LICENSE)
 [![demo](https://img.shields.io/badge/demo-live-d7202b)](https://officalbluehair.github.io/turkce-slug/)
 
-**npm:** https://www.npmjs.com/package/turkce-slug ·
+**npm:** https://www.npmjs.com/package/turkce-slug/v/0.1.0 ·
 **Canlı demo:** https://officalbluehair.github.io/turkce-slug/ ·
-**GitHub:** https://github.com/OfficalBlueHair/turkce-slug
+**GitHub:** https://github.com/OfficalBlueHair/turkce-slug ·
+**Dev.to:** https://dev.to/officalbluehair/turkce-slug-uretirken-iiii-sorununu-cozmek-7la
 
 - [Türkçe](#türkçe)
 - [English](#english)
