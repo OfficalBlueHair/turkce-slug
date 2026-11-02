@@ -40,12 +40,18 @@
   "keywords": [
     "turkish",
     "turkce",
+    "tr-tr",
     "slug",
     "slugify",
     "case",
+    "case-conversion",
     "i18n",
+    "localization",
+    "text-utils",
+    "unicode",
     "url",
-    "ascii"
+    "ascii",
+    "javascript"
   ],
   "author": "Officalbluehair",
   "license": "MIT",

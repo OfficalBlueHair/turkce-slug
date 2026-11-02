@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <title>turkce-slug — sosyal önizleme</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        width: 1280px;
+        height: 640px;
+        overflow: hidden;
+        font-family: "Segoe UI", "Inter", system-ui, sans-serif;
+        background:
+          radial-gradient(circle at 82% 12%, rgba(215, 32, 43, 0.22), transparent 55%),
+          radial-gradient(circle at 8% 92%, rgba(56, 189, 248, 0.16), transparent 50%),
+          #0b1020;
+        color: #e8ecf6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 72px 80px;
+        position: relative;
+      }
+
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 40px 40px;
+        mask-image: radial-gradient(circle at 50% 40%, black, transparent 78%);
+      }
+
+      .content { position: relative; z-index: 1; }
+
+      .eyebrow {
+        font-size: 20px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #8fa3c8;
+        margin-bottom: 22px;
+        font-weight: 600;
+      }
+
+      h1 {
+        font-size: 88px;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        font-weight: 800;
+        color: #ffffff;
+      }
+
+      h1 span { color: #ff5a63; }
+
+      .tagline {
+        margin-top: 20px;
+        font-size: 30px;
+        line-height: 1.35;
+        color: #c3cee6;
+        max-width: 960px;
+        font-weight: 400;
+      }
+
+      .code {
+        margin-top: 40px;
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        font-family: "Cascadia Code", "Consolas", monospace;
+        font-size: 23px;
+      }
+
+      .chip {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        padding: 10px 18px;
+        color: #dfe6f5;
+      }
+
+      .chip b { color: #ffffff; font-weight: 600; }
+      .chip i { color: #7ce0a3; font-style: normal; }
+
+      .footer {
+        margin-top: 44px;
+        display: flex;
+        gap: 28px;
+        font-size: 21px;
+        color: #93a4c6;
+      }
+
+      .footer strong { color: #e8ecf6; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <div class="grid"></div>
+    <div class="content">
+      <div class="eyebrow">npm · TypeScript · 0 dependencies</div>
+      <h1>turkce<span>-</span>slug</h1>
+      <p class="tagline">
+        Türkçe metinler için doğru slug ve büyük/küçük harf dönüşümü.
+      </p>
+      <div class="code">
+        <div class="chip"><b>İSTANBUL</b> → <i>istanbul</i></div>
+        <div class="chip"><b>IĞDIR</b> → <i>igdir</i></div>
+        <div class="chip"><b>ŞÜKRÜ ÇAĞLAR</b> → <i>sukru-caglar</i></div>
+      </div>
+      <div class="footer">
+        <div><strong>616.760</strong> kelime doğrulandı · 0 hata</div>
+        <div><strong>ESM + CJS</strong> + tipler</div>
+        <div>npm i turkce-slug</div>
+      </div>
+    </div>
+  </body>
+</html>

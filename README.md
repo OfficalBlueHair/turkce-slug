@@ -8,6 +8,7 @@ Zero runtime dependencies · ESM + CommonJS · TypeScript types included.
 
 [![CI](https://github.com/OfficalBlueHair/turkce-slug/actions/workflows/ci.yml/badge.svg)](https://github.com/OfficalBlueHair/turkce-slug/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/turkce-slug.svg)](https://www.npmjs.com/package/turkce-slug)
+[![corpus](https://img.shields.io/badge/corpus-616.760%20words%2C%200%20errors-success)](reports/corpus-report.json)
 [![license](https://img.shields.io/npm/l/turkce-slug.svg)](LICENSE)
 [![demo](https://img.shields.io/badge/demo-live-d7202b)](https://officalbluehair.github.io/turkce-slug/)
 
@@ -43,6 +44,36 @@ için doğru değildir:
 Aynı sorun "I", "ı", "İ" ve "i" harflerini işleyen birçok slug
 kütüphanesinde de görülür. `turkce-slug` bu dört harfi açık kurallarla
 işler ve slug üretiminde sonucu ortamın locale ayarına bırakmaz.
+
+### Diğer kütüphanelerle karşılaştırma
+
+Aşağıdaki çıktılar 2 Kasım 2026'da, kütüphanelerin **varsayılan**
+ayarlarıyla ölçüldü (`slugify` 1.6.9, `@sindresorhus/slugify` 3.0.1,
+`limax` 4.2.3, `slug` 12.0.1):
+
+| Girdi | turkce-slug | slugify | @sindresorhus/slugify | limax | slug |
+| --- | --- | --- | --- | --- | --- |
+| `İSTANBUL` | `istanbul` | `ISTANBUL` | `istanbul` | `istanbul` | `istanbul` |
+| `IĞDIR` | `igdir` | `IGDIR` | `igdir` | `igdir` | `igdir` |
+| `İstanbul'da Iğdır` | `istanbulda-igdir` | `Istanbul'da-Igdir` | `istanbul-da-igdir` | `istanbulda-igdir` | `istanbulda-igdir` |
+| `ŞÜKRÜ ÇAĞLAR` | `sukru-caglar` | `SUKRU-CAGLAR` | `s-ue-kr-ue-caglar` | `suekrue-caglar` | `sukru-caglar` |
+| `Fiyat: 100 TL / Ay` | `fiyat-100-tl-ay` | `Fiyat:-100-TL-Ay` | `fiyat-100-tl-ay` | `fiyat-100-tl-ay` | `fiyat-100-tl-ay` |
+
+Notlar:
+
+- `slugify` doğru sonucu `{ lower: true, strict: true }` seçenekleriyle verir;
+  varsayılanı büyük harfi, kesme işaretini ve `!` gibi karakterleri korur.
+- `@sindresorhus/slugify` ve `limax`, Almanca transliterasyon kuralıyla
+  `ü → ue` yaptığı için `ŞÜKRÜ` kelimesini bozar.
+- `slug` bu örneklerde Türkçe slug'ı doğru üretir; ancak Türkçe büyük/küçük
+  harf fonksiyonları ve korpus doğrulaması sunmaz.
+
+| Özellik | turkce-slug | slugify | @sindresorhus/slugify | limax | slug |
+| --- | --- | --- | --- | --- | --- |
+| Ayar gerekmeden Türkçe çıktı | ✅ | ⚠️ `lower` + `strict` | ⚠️ `ü → ue` | ⚠️ `ü → ue` | ✅ |
+| Türkçe case fonksiyonları | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Runtime bağımlılığı | 0 | 0 | 2 | 3 | 0 |
+| 616.760 kelimelik korpus doğrulaması | ✅ | ❌ | ❌ | ❌ | ❌ |
 
 ### Kurulum
 
@@ -236,6 +267,34 @@ JavaScript's default casing is wrong for Turkish:
 
 Many slug libraries inherit the same problem. `turkce-slug` handles `I`,
 `ı`, `İ`, and `i` explicitly instead of relying on the host locale.
+
+### Comparison
+
+Outputs below were measured on 2 November 2026 with each library's
+**default** settings (`slugify` 1.6.9, `@sindresorhus/slugify` 3.0.1,
+`limax` 4.2.3, `slug` 12.0.1):
+
+| Input | turkce-slug | slugify | @sindresorhus/slugify | limax | slug |
+| --- | --- | --- | --- | --- | --- |
+| `İSTANBUL` | `istanbul` | `ISTANBUL` | `istanbul` | `istanbul` | `istanbul` |
+| `IĞDIR` | `igdir` | `IGDIR` | `igdir` | `igdir` | `igdir` |
+| `İstanbul'da Iğdır` | `istanbulda-igdir` | `Istanbul'da-Igdir` | `istanbul-da-igdir` | `istanbulda-igdir` | `istanbulda-igdir` |
+| `ŞÜKRÜ ÇAĞLAR` | `sukru-caglar` | `SUKRU-CAGLAR` | `s-ue-kr-ue-caglar` | `suekrue-caglar` | `sukru-caglar` |
+| `Fiyat: 100 TL / Ay` | `fiyat-100-tl-ay` | `Fiyat:-100-TL-Ay` | `fiyat-100-tl-ay` | `fiyat-100-tl-ay` | `fiyat-100-tl-ay` |
+
+- `slugify` matches these results with `{ lower: true, strict: true }`; its
+  defaults preserve case, apostrophes, and punctuation.
+- `@sindresorhus/slugify` and `limax` apply German-style `ü → ue`, so
+  `ŞÜKRÜ` is mangled.
+- `slug` produces correct Turkish slugs here, but ships no Turkish casing
+  functions and no corpus validation.
+
+| Feature | turkce-slug | slugify | @sindresorhus/slugify | limax | slug |
+| --- | --- | --- | --- | --- | --- |
+| Correct Turkish output out of the box | ✅ | ⚠️ `lower` + `strict` | ⚠️ `ü → ue` | ⚠️ `ü → ue` | ✅ |
+| Turkish casing functions | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Runtime dependencies | 0 | 0 | 2 | 3 | 0 |
+| 616,760-word corpus validation | ✅ | ❌ | ❌ | ❌ | ❌ |
 
 ### Install
 
