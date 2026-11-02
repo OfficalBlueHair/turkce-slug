@@ -48,7 +48,7 @@ slugify("IĞDIR");                 // "igdir"
 slugify("İstanbul'da Iğdır");     // "istanbulda-igdir"
 slugify("Çok Güzel Bir Başlık!"); // "cok-guzel-bir-baslik"
 slugify("ŞÜKRÜ ÇAĞLAR");          // "sukru-caglar"
-slugify("Fiyat: 100 TL / Ay");    // "fiyat-100-tl-ay"
+slugify("Mesafe: 100 Km / Gün");  // "mesafe-100-km-gun"
 ```
 
 Kurulum:
@@ -94,7 +94,7 @@ slugify("Çok Güzel", { lowercase: false });     // "Cok-Guzel"
 slugify("Çok güzel bir başlık örneği", {
   maxLength: 10,
 });                                             // "cok-guzel"
-slugify("Fiyat: 100 TL", { preserveNumbers: false }); // "fiyat-tl"
+slugify("Mesafe: 100 Km", { preserveNumbers: false }); // "mesafe-km"
 ```
 
 - `separator` varsayılan `"-"`.

@@ -12,7 +12,7 @@ describe("slugify", () => {
     ["  Çok   Güzel!  ", "cok-guzel"],
     ["Hello World 123", "hello-world-123"],
     ["ŞÜKRÜ ÇAĞLAR", "sukru-caglar"],
-    ["Fiyat: 100 TL / Ay", "fiyat-100-tl-ay"],
+    ["Mesafe: 100 Km / Gün", "mesafe-100-km-gun"],
     ["Ağrı Dağı 5137m", "agri-dagi-5137m"],
     ["kâğıt", "kagit"],
     ["Merhaba, dünya!", "merhaba-dunya"],
@@ -66,15 +66,15 @@ describe("slugify options", () => {
 
   it("keeps numbers by default", () => {
     expect(slugify("123")).toBe("123");
-    expect(slugify("Fiyat: 100 TL / Ay")).toBe("fiyat-100-tl-ay");
+    expect(slugify("Mesafe: 100 Km / Gün")).toBe("mesafe-100-km-gun");
   });
 
   it("removes numbers when preserveNumbers is disabled", () => {
-    expect(slugify("Fiyat: 100 TL / Ay", { preserveNumbers: false })).toBe(
-      "fiyat-tl-ay",
+    expect(slugify("Mesafe: 100 Km / Gün", { preserveNumbers: false })).toBe(
+      "mesafe-km-gun",
     );
-    expect(slugify("Fiyat: 100 TL", { preserveNumbers: false })).toBe(
-      "fiyat-tl",
+    expect(slugify("Mesafe: 100 Km", { preserveNumbers: false })).toBe(
+      "mesafe-km",
     );
     expect(slugify("abc123def", { preserveNumbers: false })).toBe("abcdef");
     expect(slugify("12345", { preserveNumbers: false })).toBe("");

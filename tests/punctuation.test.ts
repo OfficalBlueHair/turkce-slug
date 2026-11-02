@@ -8,7 +8,7 @@ describe("removePunctuation", () => {
     ["  Merhaba,   dünya!  ", "Merhaba dünya"],
     ["İstanbul'da yaşıyorum.", "İstanbulda yaşıyorum"],
     ["İstanbul’da yaşıyorum.", "İstanbulda yaşıyorum"],
-    ["Fiyat: 100 TL / Ay", "Fiyat 100 TL Ay"],
+    ["Mesafe: 100 Km / Gün", "Mesafe 100 Km Gün"],
     ["Türkçe: ç, ğ, ı, İ, ö, ş, ü.", "Türkçe ç ğ ı İ ö ş ü"],
     ["Çağrı ışık öğüt şüphe", "Çağrı ışık öğüt şüphe"],
     ["e-posta", "e posta"],

@@ -87,7 +87,7 @@ const PHRASES = [
   ["İstanbul'da Iğdır", "istanbulda-igdir"],
   ["Çok Güzel Bir Başlık!", "cok-guzel-bir-baslik"],
   ["ŞÜKRÜ ÇAĞLAR", "sukru-caglar"],
-  ["Fiyat: 100 TL / Ay", "fiyat-100-tl-ay"],
+  ["Mesafe: 100 Km / Gün", "mesafe-100-km-gun"],
   ["Ağrı Dağı 5137m", "agri-dagi-5137m"],
   ["😍😍😍", ""],
 ];

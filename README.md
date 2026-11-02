@@ -57,7 +57,7 @@ ayarlarıyla ölçüldü (`slugify` 1.6.9, `@sindresorhus/slugify` 3.0.1,
 | `IĞDIR` | `igdir` | `IGDIR` | `igdir` | `igdir` | `igdir` |
 | `İstanbul'da Iğdır` | `istanbulda-igdir` | `Istanbul'da-Igdir` | `istanbul-da-igdir` | `istanbulda-igdir` | `istanbulda-igdir` |
 | `ŞÜKRÜ ÇAĞLAR` | `sukru-caglar` | `SUKRU-CAGLAR` | `s-ue-kr-ue-caglar` | `suekrue-caglar` | `sukru-caglar` |
-| `Fiyat: 100 TL / Ay` | `fiyat-100-tl-ay` | `Fiyat:-100-TL-Ay` | `fiyat-100-tl-ay` | `fiyat-100-tl-ay` | `fiyat-100-tl-ay` |
+| `Mesafe: 100 Km / Gün` | `mesafe-100-km-gun` | `Mesafe:-100-Km-Gun` | `mesafe-100-km-guen` | `mesafe-100-km-guen` | `mesafe-100-km-gun` |
 
 Notlar:
 
@@ -100,7 +100,7 @@ slugify("IĞDIR");                    // "igdir"
 slugify("İstanbul'da Iğdır");        // "istanbulda-igdir"
 slugify("Çok Güzel Bir Başlık!");    // "cok-guzel-bir-baslik"
 slugify("ŞÜKRÜ ÇAĞLAR");             // "sukru-caglar"
-slugify("Fiyat: 100 TL / Ay");       // "fiyat-100-tl-ay"
+slugify("Mesafe: 100 Km / Gün");   // "mesafe-100-km-gun"
 
 toLowercaseTr("IĞDIR");              // "ığdır"
 toUppercaseTr("ışık");               // "IŞIK"
@@ -126,7 +126,7 @@ slugify("Çok Güzel", { lowercase: false });        // "Cok-Guzel"
 slugify("Çok güzel bir başlık örneği", {
   maxLength: 10,
 });                                                // "cok-guzel"
-slugify("Fiyat: 100 TL", { preserveNumbers: false }); // "fiyat-tl"
+slugify("Mesafe: 100 Km", { preserveNumbers: false }); // "mesafe-km"
 ```
 
 ### Demo
@@ -280,7 +280,7 @@ Outputs below were measured on 2 November 2026 with each library's
 | `IĞDIR` | `igdir` | `IGDIR` | `igdir` | `igdir` | `igdir` |
 | `İstanbul'da Iğdır` | `istanbulda-igdir` | `Istanbul'da-Igdir` | `istanbul-da-igdir` | `istanbulda-igdir` | `istanbulda-igdir` |
 | `ŞÜKRÜ ÇAĞLAR` | `sukru-caglar` | `SUKRU-CAGLAR` | `s-ue-kr-ue-caglar` | `suekrue-caglar` | `sukru-caglar` |
-| `Fiyat: 100 TL / Ay` | `fiyat-100-tl-ay` | `Fiyat:-100-TL-Ay` | `fiyat-100-tl-ay` | `fiyat-100-tl-ay` | `fiyat-100-tl-ay` |
+| `Mesafe: 100 Km / Gün` | `mesafe-100-km-gun` | `Mesafe:-100-Km-Gun` | `mesafe-100-km-guen` | `mesafe-100-km-guen` | `mesafe-100-km-gun` |
 
 - `slugify` matches these results with `{ lower: true, strict: true }`; its
   defaults preserve case, apostrophes, and punctuation.
