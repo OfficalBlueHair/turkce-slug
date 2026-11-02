@@ -6,6 +6,7 @@ Sıfır runtime bağımlılığı · ESM + CommonJS · TypeScript tipleri dahil.
 Turkish-aware slug generation and Turkish casing utilities.
 Zero runtime dependencies · ESM + CommonJS · TypeScript types included.
 
+[![CI](https://github.com/OfficalBlueHair/turkce-slug/actions/workflows/ci.yml/badge.svg)](https://github.com/OfficalBlueHair/turkce-slug/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/turkce-slug.svg)](https://www.npmjs.com/package/turkce-slug)
 [![license](https://img.shields.io/npm/l/turkce-slug.svg)](LICENSE)
 [![demo](https://img.shields.io/badge/demo-live-d7202b)](https://officalbluehair.github.io/turkce-slug/)
