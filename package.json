@@ -28,6 +28,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "demo": "npm run build && node demo/server.mjs",
+    "build:site": "npm run build && node scripts/build-demo.mjs",
     "corpus:build": "node scripts/build-corpus.mjs",
     "corpus:validate": "npm run build && node scripts/validate-corpus.mjs",
     "corpus": "npm run build && node scripts/build-corpus.mjs && node scripts/validate-corpus.mjs",
@@ -42,10 +43,20 @@
     "slug",
     "slugify",
     "case",
-    "i18n"
+    "i18n",
+    "url",
+    "ascii"
   ],
   "author": "Officalbluehair",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OfficalBlueHair/turkce-slug.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OfficalBlueHair/turkce-slug/issues"
+  },
+  "homepage": "https://officalbluehair.github.io/turkce-slug/",
   "engines": {
     "node": ">=18"
   },

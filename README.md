@@ -6,6 +6,9 @@ Sıfır runtime bağımlılığı · ESM + CommonJS · TypeScript tipleri dahil.
 Turkish-aware slug generation and Turkish casing utilities.
 Zero runtime dependencies · ESM + CommonJS · TypeScript types included.
 
+**Canlı demo:** https://officalbluehair.github.io/turkce-slug/ ·
+**GitHub:** https://github.com/OfficalBlueHair/turkce-slug
+
 - [Türkçe](#türkçe)
 - [English](#english)
 
@@ -89,6 +92,10 @@ slugify("Fiyat: 100 TL", { preserveNumbers: false }); // "fiyat-tl"
 ```
 
 ### Demo
+
+**Canlı:** https://officalbluehair.github.io/turkce-slug/
+
+Yerel:
 
 ```bash
 npm run demo
@@ -263,6 +270,10 @@ slugify("Çok Güzel"); // "cok-guzel"
 ```
 
 ### Demo
+
+**Live:** https://officalbluehair.github.io/turkce-slug/
+
+Local:
 
 ```bash
 npm run demo
